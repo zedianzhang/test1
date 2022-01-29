@@ -1,0 +1,11 @@
+.sideGrid{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    justify-content: flex-start;
+    width: 12%;
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

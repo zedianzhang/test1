@@ -1,0 +1,111 @@
+.block1{
+    font-size: 1.2rem;
+    color: rgb(32,69,84);
+    flex-wrap: 1;
+    text-align: center;
+    padding-top: 2.5rem;
+    padding-bottom: 6rem;
+    margin: 0;
+}
+.block2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-bottom: 1rem;
+    height: 10%;
+}
+
+.block2 .sigtn{
+    background-color: var(--drak-blue);
+    color: white;
+    border-radius: 0.5rem;
+}
+.block2 button {
+    text-align: left;
+    background: transparent;
+    border: 0ch;
+    height: 50%;
+    font-size: 1.2rem;
+    padding-left: 1rem;
+
+    /* color: var(); */
+    /* padding:  0.5rem  0rem 0.5rem 0rem  ; */
+}
+hr{
+    width: 100%;
+}
+.subtn{
+    color: var(--background-color);
+    filter: brightness(80%);
+}
+.block3{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+}
+.block3 button{
+    color: var(--background-color);
+    filter: brightness(80%);
+}
+.topBlock{
+    height: fit-content;
+    padding-top: 1rem;
+    height: 50%;
+}
+.editBtn{
+    width: 100%;
+    text-align: left;
+    font-size: 1.2rem;
+    border: 0;
+    background-color: transparent;
+}
+.botBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 1rem;
+    height: 50%;
+    width: 100%;
+}
+.botBlock button{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    text-align: left;
+
+}
+.block4{
+    display: flex;
+    flex-direction: column;
+    height: 15%;
+    width: 100%;
+}
+.block4 button{
+    height: 50%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    border: 0;
+    border-radius: 0.5rem;
+    
+}
+.reqBtn{
+    background-color: rgb(250,238,216);
+
+    color: rgb(222, 181, 106);
+}
+.dowBtn{
+    background-color: rgb(222, 181, 106);
+    color: white;
+}
+button{
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
