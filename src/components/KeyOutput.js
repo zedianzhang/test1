@@ -1,4 +1,4 @@
-import classes from "./KeyOutput.module.css";
+import classes from "../style/KeyOutput.module.css";
 function KeyOutput() {
   return (
     <div className={classes.keyOutputGrid}>
@@ -10,19 +10,27 @@ function KeyOutput() {
         <h2>Aegle</h2>
       </div>
       <div className={classes.averageSaving}>
-        <p>Year 1 Average Savings</p>
+        <p>
+          Year 1 <br />
+          Average Savings
+
+        </p>
         <h2>32%</h2>
       </div>
       <div className={classes.averageSaving}>
-        <p>Year 5 Cumulative Savings</p>
+        <p>
+          Year 5 <br />
+          Cumulative Savings
+        </p>
         <h2>32%</h2>
       </div>
       <div className={classes.lossRatio}>
-        <p>Cumulative Stop-loss Loss Ratio</p>
+        <p>
+          Cumulative Stop-loss <br />
+          Loss Ratio
+        </p>
         <h2>74%</h2>
-        <button>
-          Learn more about it    &gt;
-        </button>
+        <button>Learn more about it &gt;</button>
       </div>
     </div>
   );

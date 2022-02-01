@@ -109,3 +109,6 @@ button{
     margin: 0;
     cursor: pointer;
 }
+.editBtn svg{
+    transform: rotate(90deg);
+}

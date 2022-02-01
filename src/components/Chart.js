@@ -1,7 +1,5 @@
-import classes from "./Chart.module.css";
-import switcher from "./switch-svgrepo-com.svg";
+import classes from "../style/Chart.module.css";
 import {
-  LineChart,
   Line,
   Area,
   ComposedChart,
@@ -9,125 +7,111 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
+  Scatter,
   ResponsiveContainer,
+  CartesianAxis,
 } from "recharts";
-const uv = "High-cost Clains";
 const data = [
   {
     name: "Year 1",
-    uv: 4000,
-    pv: 2400,
-    amt: 5000,
-    temperature: 2400,
+    uv: 2400,
+    pv: 1200,
+    amt: 2400,
   },
   {
     name: "Year 2",
-    uv: 5000,
-    pv: 2500,
-    amt: 7000,
-    temperature: 3000,
+    uv: 3200,
+    pv: 1300,
+    amt: 3000,
   },
   {
     name: "Year 3",
-    uv: 6000,
-    pv: 2500,
-    amt: 7000,
-    temperature: 2000 ,
+    uv: 3900,
+    pv: 1400,
+    amt: 5000,
   },
   {
     name: "Year 4",
-    uv: 7000,
-    pv: 2500,
-    amt: 8000,
-    temperature: 2000,
+    uv: 5400,
+    pv: 1500,
+    amt: 4700,
   },
   {
     name: "Year 5",
-    uv: 8000,
-    pv: 2500,
-    amt: 9000,
-    temperature: 1890,
+    uv: 7000,
+    pv: 1600,
+    amt: 5000,
   },
 ];
-const renderLegend = (props) => {
-  const { payload } = props;
 
-  return (
-    <div className={classes.switchIcon}>
-      {payload.map((entry, index) => (
-        <button className={classes.btn} key={`item-${index}`}>
-          <img src={switcher} alt="switcher"></img>
-          <div style={{ padding: "1px" }}>
-            {
-              //    entry.value
-              index === 0
-                ? "High-cost Claims"
-                : index === 1
-                ? "Total Spend, Stop-Loss"
-                : index === 2
-                ? "Total Spend, Aegle"
-                : null
-            }
-          </div>
-        </button>
-      ))}
-    </div>
-  );
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className={classes.customTooltip}>
+        <p className="label">{`$${payload[0].value}`}</p>
+      </div>
+    );
+  }
+  return null;
 };
 function Chart() {
   return (
     <ResponsiveContainer>
       <ComposedChart
         data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
+        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
       >
         <CartesianGrid
-          strokeDasharray=""
-          verticalPoints={[400, 800, 1200, 1600]}
+          strokeDasharray="3 3 "
+          // verticalPoints={[400, 800, 1200, 1600]}
           horizontal={false}
         />
         <XAxis
+          // ticks={[1,322,555]}
+          // minTickGap={1000}
           dataKey="name"
           axisLine={false}
-          padding={{ left: 20, right: 20 }}
-          interval="preserveStartEnd"
+          // padding={{ left: 20, right: 20 }}
+          interval={"0"}
+          tickLine={false}
         />
-        <YAxis axisLine={false} />
-        <Tooltip active={true} />
-        {/* <Legend content={renderLegend} align={"center"} /> */}
+        <YAxis axisLine={false} tickLine={false} />
+        <Tooltip content={<CustomTooltip />} />
+
+        <Area
+          isAnimationActive={false}
+          dataKey="amt"
+          type="monotone"
+          stroke="#d9ab57"
+          fillOpacity={1}
+          strokeWidth="4"
+          fill="url(#colorUv)"
+        />
         <Line
           type="monotone"
           dataKey="uv"
           stroke="#8884d8"
-          activeDot={{ r: 8 }}
+          activeDot={false}
+          isAnimationActive={false}
+          strokeDasharray="4 4"
+          strokeWidth={3}
+          dot={false}
         />
-        <Area
-          dataKey="temperature"
-
-          isAnimationActive={true}
-          type="basis"
-          stroke="#8884d8"
-          fillOpacity={1}
-          fill="url(#colorUv)"
-        />
+        <Scatter dataKey="amt" fill="#d9ab57" isAnimationActive={false} />
         <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-          </linearGradient>
-          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="0.8">
+            <stop offset="5%" stopColor="#d9ab57" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#d9ab57" stopOpacity={0} />
           </linearGradient>
         </defs>
-        <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="amt" stroke="#82ca9d" />
+        <Line
+          strokeWidth={3}
+          isAnimationActive={false}
+          dataKey="pv"
+          stroke="#4F95F4"
+          dot={false}
+          activeDot={false}
+        />
       </ComposedChart>
     </ResponsiveContainer>
   );

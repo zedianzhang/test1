@@ -7,7 +7,7 @@
     align-content: flex-start;
     align-items: center;
     background-color: var(--background-color);
-
+    padding: 0 1rem;
 
 }
 .keyText{
@@ -41,6 +41,7 @@
 .winnerText p{
 
     margin: 0;
+
     /* padding: 0; */
 }
 .winnerText h2{
@@ -64,6 +65,11 @@
     padding: 0;
 }
 
+.averageSaving p{
+    white-space: pre;
+    text-overflow: ellipsis;
+    width: 100%;
+}
 .lossRatio{
     /* height: 20%; */
     display: flex;
@@ -75,6 +81,8 @@
     flex-grow: 1;
     color: var(--drak-blue);
     background-color: white;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
 }
 .lossRatio button{
     margin: 0 1rem;

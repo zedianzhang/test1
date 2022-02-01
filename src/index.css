@@ -6,6 +6,7 @@
   margin: 0;
   --drak-blue:rgb(32,69,84);
   --background-color:rgb(246, 246, 246);
+  --orange:rgb(217,171,87);
 }
 body,html{
   height: 100vh;

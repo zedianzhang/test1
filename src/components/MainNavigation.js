@@ -1,4 +1,4 @@
-import classes from './MainNavigation.module.css'
+import classes from "../style/MainNavigation.module.css";
 import {
   BackBlock,
   SwitchBlock,

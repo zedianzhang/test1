@@ -1,0 +1,26 @@
+.botLegend{
+    align-self: center;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    width: max-content;    
+    border: 0.1rem ridge;
+    height: fit-content;
+    align-self: center;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+}
+.botLegend button{
+    text-align: center;
+    display: inline-block;
+    width: fit-content;
+    padding: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: auto;
+    flex-grow: 1;
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+}

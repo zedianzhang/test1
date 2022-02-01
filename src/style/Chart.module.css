@@ -16,3 +16,6 @@ img{
     /* width: 10%; */
     display: flex;
 }
+.customTooltip{
+    background-color: white;
+}
