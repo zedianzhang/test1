@@ -1,7 +1,0 @@
-.centerChartGrid{
-    display: flex;
-    background-color: rgb(246, 246, 246);
-    align-items: center;
-    width: 76%;
-    flex-grow: 2;
-}

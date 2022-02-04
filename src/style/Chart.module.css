@@ -17,5 +17,7 @@ img{
     display: flex;
 }
 .customTooltip{
-    background-color: white;
+    background-color: transparent;
+    /* height: 100px;
+    width: 200px; */
 }

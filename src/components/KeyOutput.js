@@ -1,4 +1,7 @@
 import classes from "../style/KeyOutput.module.css";
+/**
+ * @returns right side key points with four important ratio about the simulation
+ */
 function KeyOutput() {
   return (
     <div className={classes.keyOutputGrid}>

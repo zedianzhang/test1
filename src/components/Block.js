@@ -4,10 +4,18 @@ import { BsFillBarChartFill } from "react-icons/bs";
 import { GoSettings } from "react-icons/go";
 import { HiDownload }    from "react-icons/hi";
 import { IoMdDesktop } from "react-icons/io";
+
+
+/**
+ * 
+ * back to main page button 
+ */
 function BackBlock() {
   return <p className={classes.block1}>&lt; Back to Aegle homepage</p>;
 }
-
+/**
+ * two tab for router between summary page and single simulation page
+ */
 function SwitchBlock() {
   return (
     <div className={classes.block2}>
@@ -27,6 +35,10 @@ function SwitchBlock() {
     </div>
   );
 }
+/**
+ * 
+ * 4 button for edit simulation and information about simulation
+ */
 function InfoBlock() {
   return (
     <div className={classes.block3}>
@@ -53,7 +65,10 @@ function InfoBlock() {
     </div>
   );
 }
-
+/**
+ * 
+ * two option for download and request 
+ */
 function OptionBlock() {
   return (
     <div className={classes.block4}>

@@ -5,6 +5,9 @@ import {
   InfoBlock,
   OptionBlock,
 } from "./Block.js";
+/**
+ * break the left side navigation bear into 4 block
+ */
 function MainNavigation(){
     return (
       <div className={classes.sideGrid}>

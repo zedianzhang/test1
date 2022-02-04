@@ -17,13 +17,23 @@ const orange = {
 const blue = {
    background: "#4F95F4",
  };
-
+/**
+ * 
+ * @param {background} props different background form different switch 
+ * one switch toggle components for display the line in the chart
+ */
 const Switch = (props) => {
     const [id] = useState(_uniqueId("prefix-"));
 
   return (
     <div className={classes.topGrid}>
-      <input className={classes.reactSwitchCheckbox} id={id} type="checkbox" />
+      <input
+        className={classes.reactSwitchCheckbox}
+        id={id}
+        type="checkbox"
+        checked={props.isOn}
+        onChange={props.handleToggle}
+      />
       <label
         className={classes.reactSwitchLabel}
         htmlFor={id}

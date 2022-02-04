@@ -4,10 +4,11 @@
     height: 100%;
     align-items: center;
     flex-grow: 1;
-    margin: 2rem 2rem 2rem 2rem;
+    padding: 1rem 2rem;
     /* padding-top: 2rem;
     padding-bottom: 2rem; */
-    width: 88%;
+    width: 76%;
+    background-color: rgb(246, 246, 246);
     /* padding: 1%; */
     
 }

@@ -1,4 +1,5 @@
 import classes from "../style/Chart.module.css";
+import React from "react";
 import {
   Line,
   Area,
@@ -9,8 +10,8 @@ import {
   Tooltip,
   Scatter,
   ResponsiveContainer,
-  CartesianAxis,
 } from "recharts";
+// dummy data
 const data = [
   {
     name: "Year 1",
@@ -46,74 +47,75 @@ const data = [
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
+
     return (
       <div className={classes.customTooltip}>
-        <p className="label">{`$${payload[0].value}`}</p>
+        <p className="label">{`${label }: $${payload[0].value}`}</p>
       </div>
     );
   }
   return null;
 };
-function Chart() {
-  return (
-    <ResponsiveContainer>
-      <ComposedChart
-        data={data}
-        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-      >
-        <CartesianGrid
-          strokeDasharray="3 3 "
-          // verticalPoints={[400, 800, 1200, 1600]}
-          horizontal={false}
-        />
-        <XAxis
-          // ticks={[1,322,555]}
-          // minTickGap={1000}
-          dataKey="name"
-          axisLine={false}
-          // padding={{ left: 20, right: 20 }}
-          interval={"0"}
-          tickLine={false}
-        />
-        <YAxis axisLine={false} tickLine={false} />
-        <Tooltip content={<CustomTooltip />} />
-
-        <Area
-          isAnimationActive={false}
-          dataKey="amt"
-          type="monotone"
-          stroke="#d9ab57"
-          fillOpacity={1}
-          strokeWidth="4"
-          fill="url(#colorUv)"
-        />
-        <Line
-          type="monotone"
-          dataKey="uv"
-          stroke="#8884d8"
-          activeDot={false}
-          isAnimationActive={false}
-          strokeDasharray="4 4"
-          strokeWidth={3}
-          dot={false}
-        />
-        <Scatter dataKey="amt" fill="#d9ab57" isAnimationActive={false} />
-        <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="0.8">
-            <stop offset="5%" stopColor="#d9ab57" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#d9ab57" stopOpacity={0} />
-          </linearGradient>
-        </defs>
-        <Line
-          strokeWidth={3}
-          isAnimationActive={false}
-          dataKey="pv"
-          stroke="#4F95F4"
-          dot={false}
-          activeDot={false}
-        />
-      </ComposedChart>
-    </ResponsiveContainer>
-  );
+/**
+ * render the simulation chart with customized axis and lines.
+ */
+export default class Chart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.data = props.data;
+  }
+  render() {
+    return (
+      <ResponsiveContainer>
+        <ComposedChart
+          data={data}
+          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+        >
+          <CartesianGrid strokeDasharray="3 3 " horizontal={false} />
+          <XAxis
+            dataKey="name"
+            axisLine={false}
+            interval={"0"}
+            tickLine={false}
+          />
+          <YAxis axisLine={false} tickLine={false} />
+          <Tooltip content={<CustomTooltip />} />
+          <Area
+            isAnimationActive={false}
+            dataKey="amt"
+            type="monotone"
+            stroke="#d9ab57"
+            fillOpacity={1}
+            strokeWidth="4"
+            fill="url(#colorUv)"
+          />
+          <Line
+            strokeWidth={this.data().Total ? 0 : 4} // hide the line by setting width 0
+            type="monotone"
+            dataKey="uv"
+            stroke="#8884d8"
+            activeDot={false}
+            isAnimationActive={false}
+            strokeDasharray="4 4"
+            dot={false}
+          />
+          <Scatter dataKey="amt" fill="#d9ab57" isAnimationActive={false} />
+          <defs>
+            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="0.8">
+              <stop offset="5%" stopColor="#d9ab57" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="#d9ab57" stopOpacity={0} />
+            </linearGradient>
+          </defs>
+          <Line
+            strokeWidth={this.data().Loss ? 0 : 4}
+            isAnimationActive={false}
+            dataKey="pv"
+            stroke="#4F95F4"
+            dot={false}
+            activeDot={false}
+          />
+        </ComposedChart>
+      </ResponsiveContainer>
+    );
+  }
 }
-export default Chart;

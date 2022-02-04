@@ -36,7 +36,7 @@
 }
 
 .reactSwitchLabel:active .reactSwitchButton {
-  width: 2rem;
+  -width: 2rem;
 }
 
 .topGrid{
